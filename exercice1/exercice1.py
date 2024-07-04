@@ -32,20 +32,21 @@ def afficher_mois(langue='fr'):
 
 # Menu pour les choix
 def menu():
-    choix = input("""
-Menu de choix :
-f - Français
-a - Anglais
-Entrez votre choix : """).strip().lower()
-
-    if choix == 'f':
-        afficher_mois('fr')
-    
-    elif choix == 'a':
-        afficher_mois('en')
-    else:
-        afficher_mois('en')
-
+     while True:
+        choix = input("""
+    Menu de choix :
+    f - Français
+    a - Anglais
+    Entrez votre choix : """).strip().lower()
+        if choix == 'f':
+            afficher_mois('fr')
+            break
+        elif choix == 'a':
+            afficher_mois('en')
+            break
+        else:
+            print("Choix non reconnu. Veuillez entrer 'f' ou 'a'.")
+           
 # Programme principal
 verif=True
 while verif:
