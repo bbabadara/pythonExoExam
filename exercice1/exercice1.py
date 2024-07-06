@@ -1,34 +1,30 @@
 # liste des mois en français
-m_fr = [
+
+listmois={
+    "fr":[
     "Janvier", "Février", "Mars",
     "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre",
-    "Octobre", "Novembre", "Décembre"
-]
+    "Octobre", "Novembre", "Décembre"],
+    "en":[
+        "January", "February", "March",
+        "April", "May", "June",
+        "July", "August", "September",
+        "October", "November", "December"]
+}
 
-# liste des mois en anglais
-m_en = [
-    "January", "February", "March",
-    "April", "May", "June",
-    "July", "August", "September",
-    "October", "November", "December"
-]
 
 # Fonction pour afficher les mois
 def afficher_mois(langue='fr'):
-    if langue == 'fr':
-        mois = m_fr
-    elif langue == 'en':
-        mois = m_en
-    else:
-        print("Saisie incorrert. Affichage en Français.")
-        mois = m_fr
+    mois=listmois[langue]
     
     # Affichage des mois en trois colonnes
-    for i in range(1, 13):
-         print(mois[i-1].ljust(15), end=" ")
-         if i%3==0:
-            print("\n")
+    for i in range(0,3):
+        for j in range(0,4):
+            print(f"{mois[i+3*j]:15}", end=" ")
+        print()
+         
+        
 
 # Menu pour les choix
 def menu():
@@ -38,14 +34,15 @@ def menu():
     f - Français
     a - Anglais
     Entrez votre choix : """).strip().lower()
-        if choix == 'f':
-            afficher_mois('fr')
-            break
-        elif choix == 'a':
+        if choix == 'a':
             afficher_mois('en')
             break
         else:
-            print("Choix non reconnu. Veuillez entrer 'f' ou 'a'.")
+            if choix != "f":
+                print("\nChoix invalide, Affichage en Français \n")
+            afficher_mois()
+            break
+       
            
 # Programme principal
 verif=True
