@@ -16,7 +16,6 @@ phrases = []
 
 for i in range(n):
     phrase = input(f"Saisissez la phrase {i+1}: ")
-#    phrase = cleanner(phrase)      
     phrases.append(phrase)
     
 print("\nVoici les phrases corrigées :")
